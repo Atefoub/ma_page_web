@@ -1,11 +1,11 @@
 /* Variables de couleurs */
 :root {
-  --primary-color: #d1495b;       /* Rouge chaud / terracotta */
-  --secondary-color: #b33f3f;     /* Rouge foncé / brique */
-  --background-color: #fff4e6;    /* Beige clair / sable doux */
-  --text-color: #4b2e2e;          /* Brun foncé / chocolat */
-  --accent-color: #ff9f1c;        /* Orange doré / accent lumineux */
-  --font-family:  "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Police principale */
+  --primary-color: #d1495b;
+  --secondary-color: #b33f3f;
+  --background-color: #fff4e6;
+  --text-color: #4b2e2e;
+  --accent-color: #ff9f1c;
+  --font-family:  "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --transition-time: 0.3s;
 }
 

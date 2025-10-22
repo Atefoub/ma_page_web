@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sectionExercices = document.getElementById("exercices");
 
   bouton.addEventListener("click", function (e) {
-    e.preventDefault(); // Empêche le saut brutal
+    e.preventDefault();
     sectionExercices.scrollIntoView({ behavior: "smooth" });
   });
 
