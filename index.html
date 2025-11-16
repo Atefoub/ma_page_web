@@ -16,6 +16,10 @@
   </head>
   <body>
     <header>
+      <div class="datetime-display" id="datetime">
+        <span class="date" id="date"></span>
+        <span class="time" id="time"></span>
+      </div>
       <nav>
         <ul>
           <li><a href="#accueil">Accueil</a></li>
@@ -59,221 +63,235 @@
 
       <section id="exercices">
         <h2>Mes Exercices</h2>
+        
+        <div class="exercices-container">
+          <!-- Bouton navigation gauche -->
+          <button class="nav-button nav-button-left" aria-label="Exercices précédents">‹</button>
+          
+          <!-- Wrapper scrollable -->
+          <div class="exercices-wrapper">
+            <div class="exercices-grid">
+              
+              <article class="exercice">
+                <h3>Exercice 1 – Bonjour Javascript</h3>
+                <p>
+                  Objectif : Cet exercice m'a permis de consolider mes compétences en JavaScript
+                  en manipulant des variables, des fonctions avec paramètres, des conditions,
+                  et en intégrant le tout dans une page HTML connectée à un script.
+                  J'ai également appris à utiliser les valeurs de retour pour rendre mon code plus dynamique et interactif.
+                </p>
+                <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript</p>
+                <img
+                  src="images/screenshots/screenshot_exercice_1_bonjour_javascript.jpg"
+                  alt="Capture écran exercice 1"
+                />
+                <p>
+                  <a
+                    href="https://github.com/adatechschool/Exercices_individuels_Module_1/blob/main/01_bonjour_javascript.md"
+                    >Code sur GitHub</a
+                  >
+                  |
+                  <a
+                    href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/bonjour_javascript"
+                    >Voir la démo</a
+                  >
+                </p>
+                <p>Date : octobre 2025</p>
+              </article>
 
-        <article class="exercice">
-          <h3>Exercice 1 – Bonjour Javascript</h3>
-          <p>
-            Objectif : Cet exercice m’a permis de consolider mes compétences en JavaScript
-            en manipulant des variables, des fonctions avec paramètres, des conditions,
-            et en intégrant le tout dans une page HTML connectée à un script.
-            J’ai également appris à utiliser les valeurs de retour pour rendre mon code plus dynamique et interactif.
-          </p>
-          <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript</p>
-          <img
-            src="images/screenshots/screenshot_exercice_1_bonjour_javascript.jpg"
-            alt="Capture écran exercice 1"
-          />
-          <p>
-            <a
-              href="https://github.com/adatechschool/Exercices_individuels_Module_1/blob/main/01_bonjour_javascript.md"
-              >Code sur GitHub</a
-            >
-            |
-            <a
-              href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/bonjour_javascript"
-              >Voir la démo</a
-            >
-          </p>
-          <p>Date : octobre 2025</p>
-        </article>
+              <article class="exercice">
+                <h3>Exercice 2 – Guess a number</h3>
+                <p>
+                  Objectif : Le but de cet exercice individuel est de faire un petit
+                  jeu en JS qui permet de deviner un nombre. Nous avons découpé
+                  l'exercice en étapes, il faut donc les suivre pour arriver au bout.
+                  Ces étapes sont aussi là pour vous proposer un découpage d'un projet
+                  en taches plus simples à réaliser. Chaque étape est une mini version
+                  du jeu que l'on va incrémenter. Le but n'étant pas forcement de tout
+                  faire mais d'essayer d'aller le plus loin, chacun peut aller à son
+                  rythme, ce n'est pas une compétition 😊.
+                </p>
+                <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript</p>
+                <img
+                  src="images/screenshots/screenshot_exercice_2_guess_a_number.jpg"
+                  alt="Capture écran exercice 2"
+                />
+                <p>
+                  <a
+                    href="https://github.com/adatechschool/Exercices_individuels_Module_1/blob/main/02_guess_a_number.md"
+                    >Code sur GitHub</a
+                  >
+                  |
+                  <a href="https://guess-a-number-atefoub.netlify.app/"
+                    >Voir la démo</a
+                  >
+                </p>
+                <p>Date : octobre 2025</p>
+              </article>
 
-        <article class="exercice">
-          <h3>Exercice 2 – Guess a number</h3>
-          <p>
-            Objectif : Le but de cet exercice individuel est de faire un petit
-            jeu en JS qui permet de deviner un nombre. Nous avons découpé
-            l'exercice en étapes, il faut donc les suivre pour arriver au bout.
-            Ces étapes sont aussi là pour vous proposer un découpage d'un projet
-            en taches plus simples à réaliser. Chaque étape est une mini version
-            du jeu que l'on va incrémenter. Le but n'étant pas forcement de tout
-            faire mais d'essayer d'aller le plus loin, chacun peut aller à son
-            rythme, ce n'est pas une compétition 😊. Un compilateur en ligne
-            comme celui-ci est suffisant. (Pour y voir la console il faut
-            Inspecter>Console). Mais vous pouvez créer votre propre page html
-            incluant votre js ou vous pouvez partir du template HTML+CSS+JS pour
-            cet exercice. Contraintes : Langage : JS Suivre les étapes Une
-            fonctionnalité = une fonction
-          </p>
-          <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript</p>
-          <img
-            src="images/screenshots/screenshot_exercice_2_guess_a_number.jpg"
-            alt="Capture écran exercice 2"
-          />
-          <p>
-            <a
-              href="https://github.com/adatechschool/Exercices_individuels_Module_1/blob/main/02_guess_a_number.md"
-              >Code sur GitHub</a
-            >
-            |
-            <a href="https://guess-a-number-atefoub.netlify.app/"
-              >Voir la démo</a
-            >
-          </p>
-          <p>Date : octobre 2025</p>
-        </article>
+              <article class="exercice">
+                <h3>Exercice 3 – Produire un affichage en flexbox</h3>
+                <p>
+                  Objectif : L'objectif est d'ajuster les propriétés CSS pour obtenir
+                  une vue "galerie" des éléments qui s'ajustent selon la taille de
+                  l'écran.
+                </p>
+                <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript</p>
+                <img
+                  src="images/screenshots/screenshot_exercice_3_paw_models.jpg"
+                  alt="Capture écran exercice 3"
+                />
+                <p>
+                  <a
+                    href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/HTML_%20CSS_avanc%C3%A9_(responsive)/exercice-1"
+                    >Code sur GitHub</a
+                  >
+                  |
+                  <a
+                    href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/HTML_%20CSS_avanc%C3%A9_(responsive)/exercice-1"
+                    >Voir la démo</a
+                  >
+                </p>
+                <p>Date : octobre 2025</p>
+              </article>
 
-        <article class="exercice">
-          <h3>Exercice 3 – Produire un affichage en flexbox</h3>
-          <p>
-            Objectif : L'objectif est d'ajuster les propriétés CSS pour obtenir
-            une vue "galerie" des éléments qui s'ajustent selon la taille de
-            l'écran.
-          </p>
-          <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript</p>
-          <img
-            src="images/screenshots/screenshot_exercice_3_paw_models.jpg"
-            alt="Capture écran exercice 3"
-          />
-          <p>
-            <a
-              href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/HTML_%20CSS_avanc%C3%A9_(responsive)/exercice-1"
-              >Code sur GitHub</a
-            >
-            |
-            <a
-              href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/HTML_%20CSS_avanc%C3%A9_(responsive)/exercice-1"
-              >Voir la démo</a
-            >
-          </p>
-          <p>Date : octobre 2025</p>
-        </article>
+              <article class="exercice">
+                <h3>Exercice 4 – Reproduire un design responsive</h3>
+                <p>
+                  Objectif : Your challenge is to build out this coming soon page and
+                  get it looking as close to the design as possible. You can use any
+                  tools you like to help you complete the challenge. So if you've got
+                  something you'd like to practice, feel free to give it a go. Your
+                  users should be able to: View the optimal layout for the interface
+                  depending on their device's screen size See hover and focus states
+                  for all interactive elements on the page Receive an error message
+                  when the form is submitted if: The input field is empty The email
+                  address is not formatted correctly.
+                </p>
+                <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript</p>
+                <img
+                  src="images/screenshots/screenshot_exercice_4_base_apparel.jpg"
+                  alt="Capture écran exercice 4"
+                />
+                <p>
+                  <a
+                    href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/HTML_%20CSS_avanc%C3%A9_(responsive)/exercice-3"
+                    >Code sur GitHub</a
+                  >
+                  |
+                  <a
+                    href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/HTML_%20CSS_avanc%C3%A9_(responsive)/exercice-3"
+                    >Voir la démo</a
+                  >
+                </p>
+                <p>Date : octobre 2025</p>
+              </article>
 
-        <article class="exercice">
-          <h3>Exercice 4 – Reproduire un design responsive</h3>
-          <p>
-            Objectif :Your challenge is to build out this coming soon page and
-            get it looking as close to the design as possible. You can use any
-            tools you like to help you complete the challenge. So if you've got
-            something you'd like to practice, feel free to give it a go. Your
-            users should be able to: View the optimal layout for the interface
-            depending on their device's screen size See hover and focus states
-            for all interactive elements on the page Receive an error message
-            when the form is submitted if: The input field is empty The email
-            address is not formatted correctly Download the starter code and go
-            through the README.md file. This will provide further details about
-            the project. The style-guide.md file is where you'll find colors,
-            fonts, etc. Want some support on the challenge? Join our community
-            and ask questions in the help channel.
-          </p>
-          <p><strong>Technologies utilisées :</strong> HTML, CSS, JavaScript</p>
-          <img
-            src="images/screenshots/screenshot_exercice_4_base_apparel.jpg"
-            alt="Capture écran exercice 3"
-          />
-          <p>
-            <a
-              href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/HTML_%20CSS_avanc%C3%A9_(responsive)/exercice-3"
-              >Code sur GitHub</a
-            >
-            |
-            <a
-              href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/HTML_%20CSS_avanc%C3%A9_(responsive)/exercice-3"
-              >Voir la démo</a
-            >
-          </p>
-          <p>Date : octobre 2025</p>
-        </article>
+              <article class="exercice">
+                <h3>Exercice 5 – Quiz des Objets insolites</h3>
+                <p>
+                  Objectif : Créer un quiz interactif permettant de deviner l'utilité
+                  d'objets insolites. Le projet inclut : un système de
+                  questions/réponses avec images, un timer par question (20 secondes),
+                  un mélange aléatoire des réponses, une barre de progression, un
+                  affichage des explications après chaque réponse, un système de score
+                  avec historique des 10 meilleurs résultats sauvegardés dans le
+                  localStorage, et un design responsive moderne avec des animations.
+                </p>
+                <p>
+                  <strong>Technologies utilisées :</strong> HTML, CSS, JavaScript,
+                  JSON, localStorage, Font Awesome
+                </p>
+                <img
+                  src="images/screenshots/screenshot_exercice_5_quiz.jpg"
+                  alt="Capture écran exercice 5 - Quiz des Objets insolites"
+                />
+                <p>
+                  <a
+                    href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/quiz_objets_insolites"
+                    >Code sur GitHub</a
+                  >
+                  |
+                  <a href="https://atefoub.github.io/projet-quiz-antochloe-quiz-show/" target="_blank" rel="noopener"
+                    >Voir la démo</a
+                  >
+                </p>
+                <p>Date : octobre 2025</p>
+                <p><em>Projet réalisé en collaboration avec Chloé Verglas</em></p>
+              </article>
 
-        <article class="exercice">
-          <h3>Exercice 5 – Quiz des Objets insolites</h3>
-          <p>
-            Objectif : Créer un quiz interactif permettant de deviner l'utilité
-            d'objets insolites. Le projet inclut : un système de
-            questions/réponses avec images, un timer par question (20 secondes),
-            un mélange aléatoire des réponses, une barre de progression, un
-            affichage des explications après chaque réponse, un système de score
-            avec historique des 10 meilleurs résultats sauvegardés dans le
-            localStorage, et un design responsive moderne avec des animations.
-          </p>
-          <p>
-            <strong>Technologies utilisées :</strong> HTML, CSS, JavaScript,
-            JSON, localStorage, Font Awesome
-          </p>
-          <img
-            src="images/screenshots/screenshot_exercice_5_quiz.jpg"
-            alt="Capture écran exercice 5 - Quiz des Objets insolites"
-          />
-          <p>
-            <a
-              href="https://github.com/Atefoub/ADA/tree/main/exercices_individuels/quiz_objets_insolites"
-              >Code sur GitHub</a
-            >
-            |
-            <a href="https://atefoub.github.io/projet-quiz-antochloe-quiz-show/" target="_blank" rel="noopener">
-              >Voir la démo</a
-            >
-          </p>
-          <p>Date : octobre 2025</p>
-          <p><em>Projet réalisé en collaboration avec Chloé Verglas</em></p>
-        </article>
+              <article class="exercice">
+                <h3>Exercice 6 – Parlez-vous le Morse ?</h3>
+                <p>
+                  Objectif : Créer un encodeur/décodeur de code Morse interactif. 
+                  L'application permet de convertir du texte latin en code Morse et vice-versa. 
+                  Le projet inclut : un système de traduction bidirectionnelle (Latin ↔ Morse), 
+                  des dictionnaires de correspondance pour chaque lettre de l'alphabet, 
+                  une gestion des espaces et des mots (séparateur "/"), 
+                  des fonctions de nettoyage pour chaque section, 
+                  un panneau d'information détaillant l'histoire du code Morse et de ses inventeurs 
+                  (Samuel Morse, Alfred Vail, Joseph Henry), et une interface moderne avec 
+                  un design chaleureux aux tons orange/corail.
+                </p>
+                <p>
+                  <strong>Technologies utilisées :</strong> HTML, CSS, JavaScript
+                </p>
+                <img
+                  src="images/screenshots/screenshot_exercice_6_parlez_vous_le_morse.jpg"
+                  alt="Capture écran exercice 6 - Encodeur/Décodeur Morse"
+                />
+                <p>
+                  <a
+                    href="https://github.com/Atefoub/parlez_vous_le_morse"
+                    >Code sur GitHub</a
+                  >
+                  |
+                  <a
+                    href="https://atefoub.github.io/parlez_vous_le_morse/"
+                    >Voir la démo</a
+                  >
+                </p>
+                <p>Date : novembre 2025</p>
+              </article>
 
-        <article class="exercice">
-          <h3>Exercice 6 – Parlez-vous le Morse ?</h3>
-          <p>
-            Objectif : Créer un encodeur/décodeur de code Morse interactif. 
-            L'application permet de convertir du texte latin en code Morse et vice-versa. 
-            Le projet inclut : un système de traduction bidirectionnelle (Latin ↔ Morse), 
-            des dictionnaires de correspondance pour chaque lettre de l'alphabet, 
-            une gestion des espaces et des mots (séparateur "/"), 
-            des fonctions de nettoyage pour chaque section, 
-            un panneau d'information détaillant l'histoire du code Morse et de ses inventeurs 
-            (Samuel Morse, Alfred Vail, Joseph Henry), et une interface moderne avec 
-            un design chaleureux aux tons orange/corail.
-          </p>
-          <p>
-            <strong>Technologies utilisées :</strong> HTML, CSS, JavaScript
-          </p>
-          <img
-            src="images/screenshots/screenshot_exercice_6_parlez_vous_le_morse.jpg"
-            alt="Capture écran exercice 6 - Encodeur/Décodeur Morse"
-          />
-          <p>
-            <a
-              href="https://github.com/Atefoub/parlez_vous_le_morse"
-              >Code sur GitHub</a
-            >
-            |
-            <a
-              href="https://atefoub.github.io/parlez_vous_le_morse/"
-              >Voir la démo</a
-            >
-          </p>
-          <p>Date : novembre 2025</p>
-        </article>
+            </div>
+          </div>
+          
+          <!-- Bouton navigation droite -->
+          <button class="nav-button nav-button-right" aria-label="Exercices suivants">›</button>
+        </div>
       </section>
     </main>
 
     <footer id="contact">
       <h2>Contact</h2>
-      <p>
-        Email :
-        <a href="mailto:antoinem1pro@gmail.com">antoinem1pro@gmail.com</a>
-      </p>
-      <p>
-        <a href="https://github.com/Atefoub"
-          >GitHub : Atefoub (Antoine Mourin)</a
-        >
-      </p>
-      <p>
-        <a href="https://www.linkedin.com/in/antoine-mourin-0033ab233/"
-          >Linkedin : Antoine Mourin</a
-        >
-      </p>
-      <p>
-        <a href="images/cv.pdf" target="_blank">📄 Consulter mon CV</a>
-      </p>
+      <div class="contact-links">
+        <a href="mailto:antoinem1pro@gmail.com" class="contact-icon" title="Email : antoinem1pro@gmail.com" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+        
+        <a href="https://github.com/Atefoub" class="contact-icon" title="GitHub : Atefoub" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        
+        <a href="https://www.linkedin.com/in/antoine-mourin-0033ab233/" class="contact-icon" title="LinkedIn : Antoine Mourin" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        
+        <a href="images/cv.pdf" class="contact-icon" title="Télécharger mon CV" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+          </svg>
+        </a>
+      </div>
 
-      <p>&copy; 2025 Antoine Mourin. Tous droits réservés.</p>
+      <p class="copyright">&copy; 2025 Antoine Mourin. Tous droits réservés.</p>
     </footer>
 
     <!-- Bouton retour en haut -->
