@@ -35,7 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ctx.fillStyle = 'rgba(255, 244, 230, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    ctx.fillStyle = '#00ff00';
+    // Utiliser les couleurs du portfolio (dégradé rouge/orange)
+    const colors = ['#d1495b', '#ff9f1c', '#b33f3f'];
+    
     ctx.font = fontSize + 'px monospace';
     
     for (let i = 0; i < drops.length; i++) {
@@ -43,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const x = i * fontSize;
       const y = drops[i] * fontSize;
       
+      // Alterner les couleurs de manière aléatoire
+      ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
       ctx.fillText(char, x, y);
       
       // Réinitialiser la goutte aléatoirement
