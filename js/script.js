@@ -1,9 +1,99 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Affichage de la date et de l'heure
+  // ========== MATRIX RAIN EFFECT ==========
+  const canvas = document.getElementById('matrix-canvas');
+  const ctx = canvas.getContext('2d');
+  const btnMatrixToggle = document.getElementById('btn-matrix-toggle');
+  
+  let matrixActive = false;
+  let animationId = null;
+  
+  // Redimensionner le canvas
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  
+  // Caractères Matrix (chiffres + symboles)
+  const matrixChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*()';
+  const chars = matrixChars.split('');
+  
+  const fontSize = 16;
+  let columns = Math.floor(canvas.width / fontSize);
+  const drops = [];
+  
+  // Initialiser les gouttes
+  for (let i = 0; i < columns; i++) {
+    drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+  }
+  
+  // Fonction d'animation Matrix
+  function drawMatrix() {
+    // Fond semi-transparent pour l'effet de trainée
+    ctx.fillStyle = 'rgba(255, 244, 230, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = '#00ff00';
+    ctx.font = fontSize + 'px monospace';
+    
+    for (let i = 0; i < drops.length; i++) {
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+      
+      ctx.fillText(char, x, y);
+      
+      // Réinitialiser la goutte aléatoirement
+      if (y > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      
+      drops[i]++;
+    }
+    
+    if (matrixActive) {
+      animationId = requestAnimationFrame(drawMatrix);
+    }
+  }
+  
+  // Toggle Matrix Rain
+  btnMatrixToggle.addEventListener('click', function() {
+    matrixActive = !matrixActive;
+    
+    if (matrixActive) {
+      canvas.classList.add('active');
+      btnMatrixToggle.classList.add('active');
+      btnMatrixToggle.title = 'Désactiver Matrix Rain';
+      
+      // Réinitialiser les colonnes si nécessaire
+      columns = Math.floor(canvas.width / fontSize);
+      drops.length = 0;
+      for (let i = 0; i < columns; i++) {
+        drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+      }
+      
+      drawMatrix();
+    } else {
+      canvas.classList.remove('active');
+      btnMatrixToggle.classList.remove('active');
+      btnMatrixToggle.title = 'Activer Matrix Rain';
+      
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+      
+      // Effacer le canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  });
+
+  // ========== DATE ET HEURE ==========
   function updateDateTime() {
     const now = new Date();
     
-    // Formater la date en français (ex: "Samedi 16 Nov. 2025")
     const dateOptions = { 
       weekday: 'long', 
       year: 'numeric', 
@@ -12,14 +102,12 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     const dateStr = now.toLocaleDateString('fr-FR', dateOptions);
     
-    // Formater l'heure (ex: "14:35:22")
     const timeStr = now.toLocaleTimeString('fr-FR', {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit'
     });
     
-    // Mettre à jour le DOM
     const dateElement = document.getElementById('date');
     const timeElement = document.getElementById('time');
     
@@ -29,13 +117,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   
-  // Mettre à jour immédiatement
   updateDateTime();
-  
-  // Mettre à jour toutes les secondes
   setInterval(updateDateTime, 1000);
 
-  // Fonctionnalité scroll smooth vers les exercices
+  // ========== SCROLL SMOOTH VERS EXERCICES ==========
   const bouton = document.getElementById("btn-exercices");
   const sectionExercices = document.getElementById("exercices");
 
@@ -46,11 +131,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Fonctionnalité bouton retour en haut
+  // ========== BOUTON RETOUR EN HAUT ==========
   const btnRetourHaut = document.getElementById("btn-retour-haut");
 
   if (btnRetourHaut) {
-    // Afficher/masquer le bouton en fonction du scroll
     window.addEventListener("scroll", function () {
       if (window.scrollY > 300) {
         btnRetourHaut.classList.add("visible");
@@ -59,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Retour en haut au clic
     btnRetourHaut.addEventListener("click", function () {
       window.scrollTo({
         top: 0,
@@ -68,25 +151,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Navigation horizontale des exercices
+  // ========== NAVIGATION HORIZONTALE EXERCICES ==========
   const exercicesWrapper = document.querySelector(".exercices-wrapper");
   const navButtonLeft = document.querySelector(".nav-button-left");
   const navButtonRight = document.querySelector(".nav-button-right");
 
   if (exercicesWrapper && navButtonLeft && navButtonRight) {
-    // Fonction pour mettre à jour l'état des boutons
     function updateNavButtons() {
       const scrollLeft = exercicesWrapper.scrollLeft;
       const maxScroll = exercicesWrapper.scrollWidth - exercicesWrapper.clientWidth;
 
-      // Désactiver le bouton gauche si on est au début
       if (scrollLeft <= 0) {
         navButtonLeft.classList.add("disabled");
       } else {
         navButtonLeft.classList.remove("disabled");
       }
 
-      // Désactiver le bouton droit si on est à la fin
       if (scrollLeft >= maxScroll - 5) {
         navButtonRight.classList.add("disabled");
       } else {
@@ -94,9 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Fonction de défilement
     function scrollExercices(direction) {
-      const scrollAmount = 450; // Distance de défilement (largeur d'une carte + gap)
+      const scrollAmount = 450;
       const currentScroll = exercicesWrapper.scrollLeft;
       
       if (direction === "left") {
@@ -112,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Événements de clic sur les boutons
     navButtonLeft.addEventListener("click", function () {
       if (!this.classList.contains("disabled")) {
         scrollExercices("left");
@@ -125,18 +203,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Mettre à jour les boutons au scroll
     exercicesWrapper.addEventListener("scroll", updateNavButtons);
-
-    // Mettre à jour les boutons au redimensionnement de la fenêtre
     window.addEventListener("resize", updateNavButtons);
-
-    // Initialiser l'état des boutons
     updateNavButtons();
 
-    // Support du scroll avec la molette de souris (optionnel mais pratique)
     exercicesWrapper.addEventListener("wheel", function (e) {
-      // Si le scroll est vertical, le transformer en horizontal
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         e.preventDefault();
         this.scrollLeft += e.deltaY;

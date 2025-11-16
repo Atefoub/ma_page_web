@@ -23,6 +23,24 @@ body {
   font-family: var(--font-family);
   line-height: 1.6;
   font-size: 16px;
+  position: relative;
+}
+
+/* Matrix Rain Canvas */
+#matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+#matrix-canvas.active {
+  opacity: 1;
 }
 
 /* Liens */
@@ -364,6 +382,49 @@ footer h2 {
   transform: translateY(-1px);
 }
 
+/* Bouton Matrix Rain Toggle */
+#btn-matrix-toggle {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #00ff00;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 255, 0, 0.4);
+  transition: background-color var(--transition-time),
+              transform 0.2s,
+              box-shadow var(--transition-time);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#btn-matrix-toggle:hover {
+  background-color: #00cc00;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 255, 0, 0.6);
+}
+
+#btn-matrix-toggle:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+#btn-matrix-toggle.active {
+  background-color: #ff0000;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+#btn-matrix-toggle.active:hover {
+  background-color: #cc0000;
+  box-shadow: 0 6px 16px rgba(255, 0, 0, 0.6);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   header {
@@ -450,6 +511,19 @@ footer h2 {
     width: 45px;
     height: 45px;
     font-size: 20px;
+  }
+  
+  /* Bouton Matrix sur mobile */
+  #btn-matrix-toggle {
+    bottom: 75px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  #btn-matrix-toggle svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
