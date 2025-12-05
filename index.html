@@ -15,9 +15,6 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <!-- Canvas Matrix Rain -->
-    <canvas id="matrix-canvas"></canvas>
-
     <header>
       <div class="datetime-display" id="datetime">
         <span class="date" id="date"></span>
@@ -30,7 +27,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <h1>Portfolio de Développement Web – Antoine Mourin</h1>
+      <h1>Portfolio de Développement Web — Antoine Mourin</h1>
     </header>
 
     <main>
@@ -80,7 +77,7 @@
           <div class="exercices-wrapper">
             <div class="exercices-grid">
               <article class="exercice">
-                <h3>Exercice 1 – Bonjour Javascript</h3>
+                <h3>Exercice 1 — Bonjour Javascript</h3>
                 <p>
                   Objectif : Cet exercice m'a permis de consolider mes
                   compétences en JavaScript en manipulant des variables, des
@@ -112,7 +109,7 @@
               </article>
 
               <article class="exercice">
-                <h3>Exercice 2 – Guess a number</h3>
+                <h3>Exercice 2 — Guess a number</h3>
                 <p>
                   Objectif : Le but de cet exercice individuel est de faire un
                   petit jeu en JS qui permet de deviner un nombre. Nous avons
@@ -146,7 +143,7 @@
               </article>
 
               <article class="exercice">
-                <h3>Exercice 3 – Produire un affichage en flexbox</h3>
+                <h3>Exercice 3 — Produire un affichage en flexbox</h3>
                 <p>
                   Objectif : L'objectif est d'ajuster les propriétés CSS pour
                   obtenir une vue "galerie" des éléments qui s'ajustent selon la
@@ -175,7 +172,7 @@
               </article>
 
               <article class="exercice">
-                <h3>Exercice 4 – Reproduire un design responsive</h3>
+                <h3>Exercice 4 — Reproduire un design responsive</h3>
                 <p>
                   Objectif : Your challenge is to build out this coming soon
                   page and get it looking as close to the design as possible.
@@ -211,7 +208,7 @@
               </article>
 
               <article class="exercice">
-                <h3>Exercice 5 – Quiz des Objets insolites</h3>
+                <h3>Exercice 5 — Quiz des Objets insolites</h3>
                 <p>
                   Objectif : Créer un quiz interactif permettant de deviner
                   l'utilité d'objets insolites. Le projet inclut : un système de
@@ -250,7 +247,7 @@
               </article>
 
               <article class="exercice">
-                <h3>Exercice 6 – Parlez-vous le Morse ?</h3>
+                <h3>Exercice 6 — Parlez-vous le Morse ?</h3>
                 <p>
                   Objectif : Créer un encodeur/décodeur de code Morse
                   interactif. L'application permet de convertir du texte latin
@@ -285,7 +282,7 @@
               </article>
 
               <article class="exercice">
-                <h3>Exercice 7 – Conjecture de Syracuse</h3>
+                <h3>Exercice 7 — Conjecture de Syracuse</h3>
                 <p>
                   Objectif : Explorer et visualiser la fascinante conjecture de
                   Syracuse (également connue sous le nom de conjecture de
@@ -320,10 +317,9 @@
                 </p>
                 <p>Date : novembre 2025</p>
               </article>
-              <!-- À insérer après l'exercice 7 (Conjecture de Syracuse) et avant la fermeture de </div> de exercices-grid -->
 
               <article class="exercice">
-                <h3>Exercice 8 – Générateur d'attestation de licence</h3>
+                <h3>Exercice 8 — Générateur d'attestation de licence</h3>
                 <p>
                   Objectif : Développer une application Python avec interface
                   graphique permettant de générer automatiquement des
@@ -354,6 +350,37 @@
                   >
                 </p>
                 <p>Date : novembre 2025</p>
+              </article>
+
+              <article class="exercice">
+                <h3>Exercice 9 — Dataviz Cinéma à Paris</h3>
+                <p>
+                  Objectif : Créer une application web moderne de visualisation de données explorant l'activité cinématographique parisienne depuis 2016. Le projet exploite l'API OpenData de la Ville de Paris (14 738 enregistrements de tournages) et propose des visualisations interactives : évolution temporelle du nombre de tournages, répartition par types de production (long métrage, série, téléfilm), évolution des 5 types principaux en aires empilées, classement des tournages par arrondissement, et top des réalisateurs les plus actifs avec filtrage dynamique par année. L'application inclut un design responsive avec effets glassmorphism, des infobulles détaillées, et une architecture basée sur un hook personnalisé centralisé pour la gestion des données.
+                </p>
+                <p>
+                  <strong>Technologies utilisées :</strong> React 18, TypeScript, Vite, React Router 7, Recharts, Tailwind CSS, API OpenData Paris
+                </p>
+                <img
+                  src="images/screenshots/screenshot_exercice_9_projet_Dataviz.jpg"
+                  alt="Capture écran exercice 9 - Dataviz Cinéma à Paris"
+                />
+                <p>
+                  <a
+                    href="https://github.com/Atefoub/projet-dataviz"
+                    >Code sur GitHub</a
+                  >
+                  |
+                  <a
+                    href="https://projet-dataviz-davanto.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    >Voir la démo</a
+                  >
+                </p>
+                <p>Date : novembre-décembre 2024</p>
+                <p>
+                  <em>Projet réalisé en collaboration avec David</em>
+                </p>
               </article>
             </div>
           </div>
@@ -458,24 +485,6 @@
 
     <!-- Bouton retour en haut -->
     <button id="btn-retour-haut" title="Retour en haut">↑</button>
-
-    <!-- Bouton Matrix Rain Toggle -->
-    <button id="btn-matrix-toggle" title="Activer/Désactiver Matrix Rain">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <polyline points="16 18 22 12 16 6"></polyline>
-        <polyline points="8 6 2 12 8 18"></polyline>
-      </svg>
-    </button>
 
     <script src="js/script.js"></script>
   </body>
