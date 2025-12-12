@@ -60,22 +60,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ========== NAVIGATION HORIZONTALE EXERCICES ==========
+  // ========== NAVIGATION PAR PAGE EXERCICES ==========
   const exercicesWrapper = document.querySelector(".exercices-wrapper");
   const navButtonLeft = document.querySelector(".nav-button-left");
   const navButtonRight = document.querySelector(".nav-button-right");
+  const exercicePages = document.querySelectorAll(".exercices-page");
 
-  if (exercicesWrapper && navButtonLeft && navButtonRight) {
+  if (exercicesWrapper && navButtonLeft && navButtonRight && exercicePages.length > 0) {
+    
+    // Déterminer la largeur d'une page (elle est égale à la largeur du wrapper visible)
+    // Nous utilisons la largeur du premier élément .exercices-page pour plus de précision si le wrapper est plus grand
+    let pageScrollWidth = exercicesWrapper.clientWidth;
+    
+    // Mettre à jour la largeur au redimensionnement
+    window.addEventListener("resize", () => {
+        pageScrollWidth = exercicesWrapper.clientWidth;
+        updateNavButtons(); // Mettre à jour les boutons après redimensionnement
+    });
+
+
     function updateNavButtons() {
       const scrollLeft = exercicesWrapper.scrollLeft;
       const maxScroll = exercicesWrapper.scrollWidth - exercicesWrapper.clientWidth;
 
-      if (scrollLeft <= 0) {
+      // Désactiver le bouton gauche si on est tout au début
+      if (scrollLeft <= 5) { // Utiliser une petite marge pour la flottabilité
         navButtonLeft.classList.add("disabled");
       } else {
         navButtonLeft.classList.remove("disabled");
       }
 
+      // Désactiver le bouton droit si on est tout à la fin
+      // maxScroll - 5 pour la marge
       if (scrollLeft >= maxScroll - 5) {
         navButtonRight.classList.add("disabled");
       } else {
@@ -84,17 +100,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function scrollExercices(direction) {
-      const scrollAmount = 450;
-      const currentScroll = exercicesWrapper.scrollLeft;
-      
       if (direction === "left") {
-        exercicesWrapper.scrollTo({
-          left: currentScroll - scrollAmount,
+        exercicesWrapper.scrollBy({
+          left: -pageScrollWidth,
           behavior: "smooth"
         });
       } else {
-        exercicesWrapper.scrollTo({
-          left: currentScroll + scrollAmount,
+        exercicesWrapper.scrollBy({
+          left: pageScrollWidth,
           behavior: "smooth"
         });
       }
@@ -113,14 +126,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     exercicesWrapper.addEventListener("scroll", updateNavButtons);
-    window.addEventListener("resize", updateNavButtons);
-    updateNavButtons();
+    updateNavButtons(); // Initial call to set button state
 
+    // Désactivation du scroll à la molette pour éviter un scroll non désiré entre les pages
     exercicesWrapper.addEventListener("wheel", function (e) {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        this.scrollLeft += e.deltaY;
+      if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) {
+        // Laisser le scroll horizontal par défaut si c'est le scroll principal
+        return;
       }
+      e.preventDefault(); // Empêche le défilement vertical/horizontal libre
+      
+      // Optionnel : simuler le clic de bouton si le scroll vertical est dominant
+      if (e.deltaY > 0) {
+        if (!navButtonRight.classList.contains("disabled")) {
+            scrollExercices("right");
+        }
+      } else {
+        if (!navButtonLeft.classList.contains("disabled")) {
+            scrollExercices("left");
+        }
+      }
+      
     }, { passive: false });
   }
 });
